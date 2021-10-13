@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	PATH       = "/sys/class/backlight/intel_backlight/brightness"
+	PATH       = "BACKLIGHT_PATH"
 	MIN        = 0
 	MAX        = 7500
 	PCTMIN     = 2
