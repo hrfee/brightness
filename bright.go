@@ -62,12 +62,12 @@ func SetBrightnessSmooth(val int) error {
 		return err
 	}
 	if val > current {
-		for ; current < val; current += STEP {
+		for ; current <= val; current += STEP {
 			SetBrightness(current)
 			time.Sleep(10 * time.Millisecond)
 		}
 	} else {
-		for ; current > val; current -= STEP {
+		for ; current >= val; current -= STEP {
 			SetBrightness(current)
 			time.Sleep(10 * time.Millisecond)
 		}

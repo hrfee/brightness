@@ -5,7 +5,7 @@ rewrite of [this gist](https://gist.github.com/konradstrack/18fd96bd9d734f17f62f
 ```shell
 $ git clone https://github.com/hrfee/brightness.git
 $ cd brightness
-$ sed -i "s/BACKLIGHT_PATH/PATH_TO_BACKLIGHT_FILE/g" bright.go
+$ sed -i "s#BACKLIGHT_PATH#PATH_TO_BACKLIGHT_FILE#g" bright.go
 $ go build
 $ ./bright [-U/-B/-D]
 ```
