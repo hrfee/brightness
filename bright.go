@@ -86,12 +86,12 @@ func StepToBrightnessPct(step float64) float64 {
 
 // Usage prints the program usage, then exits with error code 1.
 func Usage() {
-	fmt.Printf("usage\n\t%s -A / -U / -E\n", os.Args[0])
+	fmt.Printf("usage\n\t%s -U / -B / -D\n", os.Args[0])
 	os.Exit(1)
 }
 
 func main() {
-	if len(os.Args) < 2 || !(os.Args[1] == "-A" || os.Args[1] == "-U" || os.Args[1] == "-E") {
+	if len(os.Args) < 2 || !(os.Args[1] == "-U" || os.Args[1] == "-D" || os.Args[1] == "-B") {
 		Usage()
 	}
 
@@ -113,11 +113,11 @@ func main() {
 	newStep := currentStep
 
 	switch os.Args[1] {
-	case "-A":
-		newStep += 2
 	case "-U":
+		newStep += 2
+	case "-D":
 		newStep -= 2
-	case "-E":
+	case "-B":
 		newStep += 5
 	}
 
@@ -128,7 +128,7 @@ func main() {
 	if newBrightness == 0 {
 		os.Exit(1)
 	}
-	if os.Args[1] == "-A" && currentBrightness == 99.0 {
+	if os.Args[1] == "-U" && currentBrightness == 99.0 {
 		newBrightness = 100.0
 	}
 	err = SetBrightnessSmooth(int((newBrightness / 100.0) * MAX))
